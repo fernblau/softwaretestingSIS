@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../pages/RegisterPage';
+import { Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
 export class RegisterPage extends BasePage {
   async goto() { 
