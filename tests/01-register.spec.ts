@@ -1,21 +1,22 @@
-import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../pages/RegisterPage';
+import { Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-test('Register a new customer successfully', async ({ page }) => {
-  const p = new RegisterPage(page);
-  await p.goto();
-  await p.registerNewUser({
-    firstName: 'John',
-    lastName: 'Doe',
-    dob: '1990-01-01',
-    street: 'Main St 1',
-    postcode: '10000',
-    city: 'Berlin',
-    state: 'Berlin',
-    country: 'DE',
-    phone: '123456789',
-    email: `user_${Date.now()}@test.com`,
-    pass: 'Password123!'
-  });
-  await expect(page).toHaveURL(/auth\/login|account/);
-});
+export class RegisterPage extends BasePage {
+  async goto() { 
+    await this.page.goto('/auth/register'); 
+  }
+  async registerNewUser(d: any) {
+    await this.page.locator('#first_name').fill(d.firstName);
+    await this.page.locator('#last_name').fill(d.lastName);
+    await this.page.locator('#dob').fill(d.dob);
+    await this.page.locator('#address').fill(d.street);
+    await this.page.locator('#postcode').fill(d.postcode);
+    await this.page.locator('#city').fill(d.city);
+    await this.page.locator('#state').fill(d.state);
+    await this.page.locator('#country').selectOption(d.country);
+    await this.page.locator('#phone').fill(d.phone);
+    await this.page.locator('#email').fill(d.email);
+    await this.page.locator('#password').fill(d.pass);
+    await this.page.locator('button[type="submit"]').click();
+  }
+}
