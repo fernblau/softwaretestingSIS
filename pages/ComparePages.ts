@@ -7,10 +7,10 @@ export class ComparePages extends BasePage {
   }
   async addFirstTwoProductsToCompare() {
     await this.page.locator('.card').nth(0).click();
-    await this.page.locator('#btn-add-to-compare').click();
+    await this.page.locator('[data-test="add-to-compare"]').click();
     await this.page.goto('/');
     await this.page.locator('.card').nth(1).click();
-    await this.page.locator('#btn-add-to-compare').click();
+    await this.page.locator('[data-test="add-to-compare"]').click();
   }
   async goToComparePage() { 
     await this.page.goto('/compare'); 
