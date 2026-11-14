@@ -34,9 +34,8 @@ Automated end-to-end test suite for Practice Software Testing — Toolshop (`htt
 
 The CI pipeline was validated through separate GitHub Actions events:
 
-* Feature branch push: Run #13
-* Pull request: Run #14
-* Four-shard execution on main: Run #18
+* Pull request: [Run #14](https://github.com/fernblau/softwaretestingSIS/actions/runs/43620538137)
+* Four-shard execution on main: [Run #18](https://github.com/fernblau/softwaretestingSIS/actions/runs/43621805781)
 
 All three runs completed successfully.
 
