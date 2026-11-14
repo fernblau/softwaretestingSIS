@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-import { RegisterPage } from '../pages/RegisterPage';
 
 test.describe('User Login', () => {
   test('Login fails with invalid credentials', async ({ page }) => {
@@ -10,26 +9,28 @@ test.describe('User Login', () => {
     await expect(await loginPage.getErrorMessage()).toBeVisible();
   });
 
-  test('Login succeeds with newly registered user', async ({ page }) => {
+  test('Login succeeds with newly registered user', async ({ page, request }) => {
     const email = `login_${Date.now()}_${Math.floor(Math.random() * 10000)}@test.com`;
     const password = 'Password123!Aa';
 
-    const registerPage = new RegisterPage(page);
-    await registerPage.goto();
-    await registerPage.registerNewUser({
-      firstName: 'Jane',
-      lastName: 'Smith',
-      dob: '1992-05-15',
-      street: 'Oak Ave 12',
-      postcode: '10115',
-      city: 'Berlin',
-      state: 'Berlin',
-      country: 'DE',
-      phone: '987654321',
-      email,
-      pass: password,
+    const res = await request.post('https://api.practicesoftwaretesting.com/users/register', {
+      data: {
+        first_name: 'Jane',
+        last_name: 'Smith',
+        dob: '1992-05-15',
+        address: {
+          street: 'Oak Ave 12',
+          city: 'Berlin',
+          state: 'Berlin',
+          country: 'DE',
+          postal_code: '10115',
+        },
+        phone: '987654321',
+        email,
+        password,
+      },
     });
-    await expect(page).toHaveURL(/\/auth\/login/);
+    expect(res.ok()).toBeTruthy();
 
     const loginPage = new LoginPage(page);
     await loginPage.goto();
