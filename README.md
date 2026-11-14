@@ -10,7 +10,7 @@ Automated end-to-end test suite for Practice Software Testing — Toolshop (`htt
 
 **CI system:** GitHub Actions. It is built into GitHub, where the repository already lives, needs no server of its own, is free for public repositories, and supports matrices for sharding.
 
-[[https://github.com/fernblau/softwaretestingSIS/actions/workflows/playwright.yml/badge.svg?branch=main]](https://github.com/fernblau/softwaretestingSIS/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/fernblau/softwaretestingSIS/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/fernblau/softwaretestingSIS/actions/workflows/playwright.yml)
 
 
 **Pipeline** (`.github/workflows/playwright.yml`):
