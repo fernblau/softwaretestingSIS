@@ -30,8 +30,17 @@ Automated end-to-end test suite for Practice Software Testing — Toolshop (`htt
 | 1 job, no sharding | 0 min 58 s | 0 min 34 s (job) | [Run #14](https://github.com/fernblau/softwaretestingSIS/actions/runs/43620538137) |
 | 4 shards + merge | 0 min 54 s | 0 min 36 s (slowest shard) | [Run #18](https://github.com/fernblau/softwaretestingSIS/actions/runs/43621805781) |
 
+## Workflow Validation
 
-Conclusion: Because the suite contains 7 fast tests, per-shard environment setup (`npm ci` and Playwright browser setup) dominates the runtime, so 4-way sharding keeps wall-clock duration roughly flat (`54s` vs. `53s`) while using `2m 14s` of total runner time.
+The CI pipeline was validated through separate GitHub Actions events:
+
+* Feature branch push: Run #13
+* Pull request: Run #14
+* Four-shard execution on main: Run #18
+
+All three runs completed successfully.
+
+Conclusion: Because the suite contains 7 fast tests, per-shard environment setup (`npm ci` and Playwright browser setup) dominates the runtime, so 4-way sharding keeps wall-clock duration roughly flat (`58s` vs. `54s`) while using `2m 14s` of total runner time.
 
 ### Running locally
 
