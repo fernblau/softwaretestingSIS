@@ -18,7 +18,7 @@ export class CatalogPage extends BasePage {
 
   async openFirstProduct() {
     await this.page.goto('/');
-    const firstCard = this.page.locator('a.card').first();
+    const firstCard = this.page.locator('a.card:not(:has-text("Out of stock"))').first();
     await firstCard.waitFor({ state: 'visible' });
     await firstCard.click();
   }

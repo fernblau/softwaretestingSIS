@@ -32,6 +32,7 @@ test.describe('User Login', () => {
     await expect(page).toHaveURL(/\/auth\/login/);
 
     const loginPage = new LoginPage(page);
+    await loginPage.goto();
     await loginPage.login(email, password);
     await expect(page).toHaveURL(/\/account/);
     await expect(page.getByTestId('page-title')).toBeVisible();
