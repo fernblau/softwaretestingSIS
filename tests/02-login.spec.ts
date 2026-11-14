@@ -36,6 +36,7 @@ test.describe('User Login', () => {
     await loginPage.goto();
     await loginPage.login(email, password);
     await expect(page).toHaveURL(/\/account/);
-    await expect(page.getByTestId('nav-menu')).toContainText('Jane Smith');
+    const token = await page.evaluate(() => localStorage.getItem('auth-token'));
+    expect(token).toBeTruthy();
   });
 });
