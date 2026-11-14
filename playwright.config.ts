@@ -22,7 +22,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL || 'https://practicesoftwaretesting.com',
     testIdAttribute: 'data-test',
-    trace: 'on-first-retry',
+    trace: isCI ? 'on' : 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     ...(process.env.PW_SINGLE_PROCESS

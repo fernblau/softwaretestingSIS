@@ -27,7 +27,7 @@ Automated end-to-end test suite for Practice Software Testing — Toolshop (`htt
 
 | Configuration | Total run time | Run tests step (slowest shard) | Run |
 | --- | --- | --- | --- |
-| 1 job, no sharding | 0 min 53 s | 0 min 34 s (job) | [Run #14](https://github.com/fernblau/softwaretestingSIS/actions/runs/43620538137) |
+| 1 job, no sharding | 0 min 58 s | 0 min 34 s (job) | [Run #14](https://github.com/fernblau/softwaretestingSIS/actions/runs/43620538137) |
 | 4 shards + merge | 0 min 54 s | 0 min 36 s (slowest shard) | [Run #18](https://github.com/fernblau/softwaretestingSIS/actions/runs/43621805781) |
 
 
