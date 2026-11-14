@@ -27,10 +27,11 @@ Automated end-to-end test suite for Practice Software Testing — Toolshop (`htt
 
 | Configuration | Total run time | Run tests step (slowest shard) | Run |
 | --- | --- | --- | --- |
-| 1 job, no sharding | TBD | TBD | TBD |
-| 4 shards + merge | TBD | TBD | TBD |
+| 1 job, no sharding | 0 min 53 s | 0 min 34 s (job) | [Run #14](https://github.com/fernblau/softwaretestingSIS/actions/runs/43620538137) |
+| 4 shards + merge | 0 min 54 s | 0 min 36 s (slowest shard) | [Run #18](https://github.com/fernblau/softwaretestingSIS/actions/runs/43621805781) |
 
-Median of 3 runs via `workflow_dispatch`. Conclusion: Update after running both 1-shard and 4-shard workflows on GitHub Actions.
+
+Conclusion: Because the suite contains 7 fast tests, per-shard environment setup (`npm ci` and Playwright browser setup) dominates the runtime, so 4-way sharding keeps wall-clock duration roughly flat (`54s` vs. `53s`) while using `2m 14s` of total runner time.
 
 ### Running locally
 
