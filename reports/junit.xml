@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.5450500000000003">
+<testsuite name="05-reset-password.spec.ts" timestamp="2026-11-14T16:20:59.791Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.314" errors="0">
+<testcase name="Reset password flow with valid and invalid emails" classname="05-reset-password.spec.ts" time="2.314">
+</testcase>
+</testsuite>
+</testsuites>
